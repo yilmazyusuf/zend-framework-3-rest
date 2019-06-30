@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "d9f87680-dd13-4623-ad2f-59efbf9c1873",
+		"name": "Zend-Rest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "y.yilmaz@hotmail.com.tr",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "123456",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Document",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "f8acaa5d72059989a8aad153caf838a7efe5f80a2ce5cf85c1bae69be6801508BtQQJTKdkrLvgZJxK2Lvar7BZF\\/aCXy+nHRj4jIDvehpubRlBgkzt9MwXxkdURxRyNVGW+e8V4RtHj2VCx9d5\\/PqWEY2OWH2iMQSucTHNANKN4rfj5YVdGzmydbh8xVyliBjgrvaK48MqcMiPVWyVQ==",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/document/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"document",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
