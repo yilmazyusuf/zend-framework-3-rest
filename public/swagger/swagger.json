@@ -1,0 +1,391 @@
+{
+  "openapi": "3.0.0",
+  "servers": [
+    {
+      "url": "http://localhost:8080",
+      "description": "LOCAL"
+    }
+  ],
+  "info": {
+    "title": "Zend Framework 3 Simple Rest Api",
+    "description": "Zend Framework 3 Simple Rest Api",
+    "license": {
+      "name": "© 2019 Yusuf Yılmaz",
+      "url": "https://github.com/yilmazyusuf"
+    },
+    "version": "1.0"
+  },
+  "tags": [
+    {
+      "name": "User",
+      "description": "Kullanıcı"
+    },
+    {
+      "name": "Document",
+      "description": "Döküman"
+    }
+    
+  ],
+  "paths": {
+    "/document/{document_id}": {
+      "get": {
+        "tags": [
+          "Document"
+        ],
+        "summary": "Document Detail",
+        "description": "Document Detail",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "boolean"
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "message_code": {
+                            "type": "string"
+                          },
+                          "message_text": {
+                            "type": "string"
+                          }
+                          
+                        }
+                      }
+                    },
+                    "api_content" :{
+                      "type":"object",
+                      "properties":{
+                        "title":{
+                          "type":"string"
+                        },
+                        "content":{
+                          "type":"string"
+                        },
+                        "date_created":{
+                          "type":"string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Document Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "boolean",
+                      "example":false
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "message_code": {
+                            "type": "string"
+                          },
+                          "message_text": {
+                            "type": "string"
+                          }
+                          
+                        }
+                      }
+                    },
+                    "api_content" :{
+                      "type":"object",
+                      "properties":{
+                        "title":{
+                          "type":"string"
+                        },
+                        "content":{
+                          "type":"string"
+                        },
+                        "date_created":{
+                          "type":"string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Token Expired -Invalid Token ",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "boolean",
+                      "example":false
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "message_code": {
+                            "type": "string"
+                          },
+                          "message_text": {
+                            "type": "string"
+                          }
+                          
+                        }
+                      }
+                    },
+                    "api_content" :{
+                      "type":"object",
+                      "properties":{
+                        "title":{
+                          "type":"string"
+                        },
+                        "content":{
+                          "type":"string"
+                        },
+                        "date_created":{
+                          "type":"string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Login Token Required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "boolean",
+                      "example":false
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "message_code": {
+                            "type": "string"
+                          },
+                          "message_text": {
+                            "type": "string"
+                          }
+                          
+                        }
+                      }
+                    },
+                    "api_content" :{
+                      "type":"object",
+                      "properties":{
+                        "title":{
+                          "type":"string"
+                        },
+                        "content":{
+                          "type":"string"
+                        },
+                        "date_created":{
+                          "type":"string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "document_id",
+            "description": "Döküman Id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "example": "1",
+              "type": "integer"
+            }
+          },
+          {
+            "name": "token",
+            "description": "Kullanıcı Login token",
+            "in": "header",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "f3f68a6e0d7ad25daa3c1983eb1408f0c138fc23b7f13eb3b5af2845850eadffXjFaYH5nGFG58IUmSwcwUn5WI3X3gHuZM2/zkninyZ68inPNnoglUYjwGDbqcopmUflbOBZi2Sk5je7bm1RRBbFjzW1lfWrL/TykMA0AWIwjtLQm2GmxzOkCBmxxOIyRgG5bPcLNREw/SkWet/Q05w=="
+            }
+          }
+        ]
+      }
+    },
+     "/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "summary": "User Login",
+        "description": "User Login",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "boolean"
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "message_code": {
+                            "type": "string"
+                          },
+                          "message_text": {
+                            "type": "string"
+                          }
+                          
+                        }
+                      }
+                    },
+                    "api_content" :{
+                      "type":"object",
+                      "properties":{
+                        "token":{
+                          "type":"string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Credential",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "boolean",
+                      "example":false
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "message_code": {
+                            "type": "string"
+                          },
+                          "message_text": {
+                            "type": "string"
+                          }
+                          
+                        }
+                      }
+                    },
+                    "api_content" :{
+                      "type":"object",
+                      "properties":{
+                        "token":{
+                          "type":"string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Authentication Failed",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "result": {
+                      "type": "boolean",
+                      "example":false
+                    },
+                    "messages": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "message_code": {
+                            "type": "string"
+                          },
+                          "message_text": {
+                            "type": "string"
+                          }
+                          
+                        }
+                      }
+                    },
+                    "api_content" :{
+                      "type":"object",
+                      "properties":{
+                        "token":{
+                          "type":"string"
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+       "requestBody": {
+          "description": "Müşteri Giriş yap",
+          "required": true,
+          "content": {
+            "application/x-www-form-urlencoded": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "description": "Kullanıcı E-Posta adresi",
+                    "example": "y.yilmaz@hotmail.com.tr",
+                    "type": "string"
+                  },
+                  "password": {
+                    "description": "Şifre",
+                    "type": "string",
+                    "example": "123456"
+                  }
+         
+                },
+                "required": [
+                  "password",
+                  "email"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

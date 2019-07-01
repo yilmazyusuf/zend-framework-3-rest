@@ -29,4 +29,7 @@ $ docker-compose exec app ./vendor/bin/phpunit module/Rest/test
 ### Postman Collection
 > Zend-Rest.postman_collection.json
 
+### Swagger Document
+> http://localhost:8080/swagger/index.html
+
 
