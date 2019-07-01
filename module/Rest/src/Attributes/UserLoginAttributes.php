@@ -3,9 +3,16 @@
 namespace Rest\Attributes;
 
 
+/**
+ * Class UserLoginAttributes
+ * @package Rest\Attributes
+ */
 class UserLoginAttributes
 {
 
+    /**
+     * @var string
+     */
     public $token = '';
 
     /**

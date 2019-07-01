@@ -15,6 +15,10 @@ use Rest\Validation\ValidateEmail;
 use Rest\Validation\ValidatePassword;
 use Zend\Mvc\MvcEvent;
 
+/**
+ * Class UserController
+ * @package Rest\Controller
+ */
 class UserController extends RestController
 {
 
@@ -29,6 +33,10 @@ class UserController extends RestController
         $this->customHttpMethodsMap = ['post' => [$this, 'login']];
     }
 
+    /**
+     * @param MvcEvent $mvcEvent
+     * @return \Zend\View\Model\JsonModel
+     */
     public function login(MvcEvent $mvcEvent)
     {
         $config = $this->getModuleConfiguration();
@@ -117,28 +125,3 @@ class UserController extends RestController
     }
 
 }
-
-/*
- * docker-compose up -d
-docker-compose exec app composer update
-docker-compose exec app ./vendor/bin/doctrine-module --no-interaction migrations:migrate
-docker-compose exec app composer serve
-
-
-docker stop $(docker ps -a -q) && docker rm $(docker ps -a -q) && docker-compose up -d
-docker system prune -a
-
-
-
-docker-compose up -d
-docker-compose exec rest composer update
-
-docker-compose exec rest ./vendor/bin/doctrine-module --no-interaction migrations:migrate
-
-docker system prune -a
-
-
-ps -A xa | grep php
-
-
- */

@@ -15,6 +15,10 @@ use Zend\Validator\Exception;
 use Zend\Validator\NotEmpty;
 use Zend\Validator\ValidatorChain;
 
+/**
+ * Class ValidateEmail
+ * @package Rest\Validation
+ */
 class ValidateEmail extends AbstractValidator
 {
 

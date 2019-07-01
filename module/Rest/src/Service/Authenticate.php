@@ -8,6 +8,10 @@ use Rest\Entity\User;
 use Zend\Authentication\Result;
 use Zend\Crypt\Password\Bcrypt;
 
+/**
+ * Class Authenticate
+ * @package Rest\Service
+ */
 class Authenticate
 {
 

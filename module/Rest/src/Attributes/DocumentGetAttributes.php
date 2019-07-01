@@ -3,11 +3,24 @@
 namespace Rest\Attributes;
 
 
+/**
+ * Class DocumentGetAttributes
+ * @package Rest\Attributes
+ */
 class DocumentGetAttributes
 {
 
+    /**
+     * @var string
+     */
     public $title = '';
+    /**
+     * @var string
+     */
     public $content = '';
+    /**
+     * @var string
+     */
     public $date_created = '';
 
     /**

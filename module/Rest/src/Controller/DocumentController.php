@@ -14,6 +14,10 @@ use Rest\Service\Encryption;
 use Rest\Service\Response;
 use Zend\Cache\StorageFactory;
 
+/**
+ * Class DocumentController
+ * @package Rest\Controller
+ */
 class DocumentController extends RestController
 {
 
@@ -25,6 +29,10 @@ class DocumentController extends RestController
     private $post;
 
 
+    /**
+     * @param $documentId
+     * @return \Zend\View\Model\JsonModel
+     */
     public function get($documentId)
     {
 
@@ -33,10 +41,9 @@ class DocumentController extends RestController
 
         $config = $this->getModuleConfiguration();
         $redisConfig = $config['redis_cache'];
-
+        $secretKey = $config['app_secret'];
         $cache = StorageFactory::factory($redisConfig);
         $cache->getOptions()->setTtl(3600);
-
 
         //Default Scheme
         $attributes = new DocumentGetAttributes();
@@ -54,8 +61,6 @@ class DocumentController extends RestController
         $tokenString = $loginToken->getFieldValue();
 
         //Decryption Token
-        $configuration = $this->getModuleConfiguration();
-        $secretKey = $configuration['app_secret'];
         $decrypedToken = Encryption::decrypt($secretKey, $tokenString);
 
         //Token Decryption Failed

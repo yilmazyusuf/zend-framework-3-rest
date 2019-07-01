@@ -6,11 +6,24 @@ namespace Rest\Service;
 use Zend\Stdlib\ResponseInterface;
 use Zend\View\Model\JsonModel;
 
+/**
+ * Class Response
+ * @package Rest\Service
+ */
 class Response
 {
 
+    /**
+     * @var bool
+     */
     private $result = true;
+    /**
+     * @var array
+     */
     private $messages = [];
+    /**
+     * @var null
+     */
     private $endpointAttributes = null;
     /**
      * @var ResponseInterface
@@ -67,7 +80,7 @@ class Response
     }
 
     /**
-     * @param mixed $message
+     * @param mixed $messages
      * @return Response
      */
     public function setMessages($messages)

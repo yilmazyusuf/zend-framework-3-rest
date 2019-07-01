@@ -14,6 +14,10 @@ use Zend\Validator\NotEmpty;
 use Zend\Validator\StringLength;
 use Zend\Validator\ValidatorChain;
 
+/**
+ * Class ValidatePassword
+ * @package Rest\Validation
+ */
 class ValidatePassword extends AbstractValidator
 {
 

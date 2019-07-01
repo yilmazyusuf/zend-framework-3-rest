@@ -12,9 +12,16 @@ use Doctrine\ORM\EntityManager;
 use Zend\Mvc\Controller\AbstractRestfulController;
 use Zend\Mvc\MvcEvent;
 
+/**
+ * Class RestController
+ * @package Rest\Controller
+ */
 class RestController extends AbstractRestfulController
 {
 
+    /**
+     * @var array
+     */
     protected $errorMessages = [];
 
     /**
